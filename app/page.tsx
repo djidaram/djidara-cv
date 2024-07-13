@@ -1,6 +1,9 @@
-import Image from "next/image";
-import { useMemo } from "react";
+import { ModeToggle } from "@/components/ModeToggle";
 
 export default function Home() {
-  return <main>homepage</main>;
+  return (
+    <main>
+      <ModeToggle />
+    </main>
+  );
 }
