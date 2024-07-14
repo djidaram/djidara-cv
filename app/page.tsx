@@ -1,4 +1,3 @@
-"use client";
 import Contact from "@/components/chapters/Contact";
 import Resume from "@/components/chapters/Resume";
 import Work from "@/components/chapters/Work";
