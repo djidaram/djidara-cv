@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Button } from "./ui/button";
 import Navigation from "./Navigation";
-import { ModeToggle } from "@/components/ModeToggle";
+import ModeToggle from "@/components/ModeToggle";
 
 const Header = () => {
   return (
