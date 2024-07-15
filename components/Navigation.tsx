@@ -6,10 +6,10 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
 const links = [
-  { name: "home", path: "/" },
-  { name: "resume", path: "#resume" },
-  { name: "work", path: "#work" },
-  { name: "contact", path: "#contact" },
+  { name: "home", path: "#home", scroll: true },
+  { name: "resume", path: "#resume", scroll: true },
+  { name: "work", path: "#work", scroll: true },
+  { name: "contact", path: "#contact", scroll: true },
 ];
 
 const Navigation = () => {
@@ -27,6 +27,7 @@ const Navigation = () => {
           href={link.path}
           key={`navi-${link.name}`}
           className={`${link.path === anchor && "text-emerald-500 border-b-2 border-emerald-500"} capitalize font-medium hover:text-emerald-500 transition-all`}
+          scroll={link.scroll}
         >
           {link.name}
         </Link>

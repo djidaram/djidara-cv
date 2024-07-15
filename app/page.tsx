@@ -1,4 +1,5 @@
 import Contact from "@/components/chapters/Contact";
+import Landing from "@/components/chapters/Landing";
 import Resume from "@/components/chapters/Resume";
 import Work from "@/components/chapters/Work";
 import { useState } from "react";
@@ -6,14 +7,14 @@ import { useState } from "react";
 export default function Home() {
   return (
     <main>
-      <div className="h-[1000px] bg-red-300"></div>
+      <>
+        <Landing />
 
-      <Resume />
-      <div className="h-[1000px] bg-green-300"></div>
+        <Resume />
 
-      <Work />
-      <div className="h-[1000px] bg-blue-300"></div>
-      <Contact />
+        <Work />
+        <Contact />
+      </>
     </main>
   );
 }
