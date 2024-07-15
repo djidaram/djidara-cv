@@ -7,14 +7,12 @@ import { useState } from "react";
 export default function Home() {
   return (
     <main>
-      <>
-        <Landing />
+      <Landing />
 
-        <Resume />
+      <Resume />
 
-        <Work />
-        <Contact />
-      </>
+      <Work />
+      <Contact />
     </main>
   );
 }
