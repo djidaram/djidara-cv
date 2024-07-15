@@ -2,23 +2,70 @@
 
 import Link from "next/link";
 
-import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 
-const links = [
-  { name: "home", path: "#home", scroll: true },
-  { name: "resume", path: "#resume", scroll: true },
-  { name: "work", path: "#work", scroll: true },
-  { name: "contact", path: "#contact", scroll: true },
-];
+type Links = {
+  name: string;
+  path: string;
+  scroll: boolean;
+  positionTop: number | undefined;
+  elementHeight: number | undefined;
+}[];
 
 const Navigation = () => {
-  const [anchor, setAnchor] = useState("/");
-  const params = useParams();
+  const [anchor, setAnchor] = useState("#home");
+  const [links, setLinks] = useState<Links>([]);
+  useEffect(() => {
+    setLinks([
+      {
+        name: "home",
+        path: "#home",
+        scroll: true,
+        positionTop: document.getElementById("home")?.offsetTop,
+        elementHeight: document.getElementById("home")?.offsetHeight,
+      },
+      {
+        name: "resume",
+        path: "#resume",
+        scroll: true,
+        positionTop: document.getElementById("resume")?.offsetTop,
+        elementHeight: document.getElementById("resume")?.offsetHeight,
+      },
+      {
+        name: "work",
+        path: "#work",
+        scroll: true,
+        positionTop: document.getElementById("work")?.offsetTop,
+        elementHeight: document.getElementById("work")?.offsetHeight,
+      },
+      {
+        name: "contact",
+        path: "#contact",
+        scroll: true,
+        positionTop: document.getElementById("contact")?.offsetTop,
+        elementHeight: document.getElementById("contact")?.offsetHeight,
+      },
+    ]);
+  }, []);
 
   useEffect(() => {
-    setAnchor(window.location.hash ? window.location.hash : "/");
-  }, [params]);
+    links.length > 0 &&
+      window.addEventListener("scroll", () => {
+        for (const link of links) {
+          const positionTop = Number(link.positionTop);
+          const positionBottom = positionTop + Number(link.elementHeight);
+
+          if (
+            window.scrollY >= positionTop &&
+            window.scrollY < positionBottom &&
+            anchor !== link.path
+          ) {
+            setAnchor(link.path);
+            break;
+          }
+        }
+      });
+  }, [anchor, links]);
 
   return (
     <nav className="flex gap-8">
