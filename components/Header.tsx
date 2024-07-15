@@ -2,14 +2,15 @@ import Link from "next/link";
 import { Button } from "./ui/button";
 import Navigation from "./Navigation";
 import ModeToggle from "@/components/ModeToggle";
+import MobileNav from "./MobileNav";
 
 const Header = () => {
   return (
-    <header className="py-8 xl:py-12">
+    <header className="py-8 xl:py-12 fixed w-full z-10">
       <div className="container mx-auto flex justify-between items-center">
         <Link href="/">
           <h1 className="text-4xl font-semibold">
-            Marko<span className="text-emerald-500">.</span>
+            Marko<span className="text-main text-emerald-500">.</span>
           </h1>
         </Link>
         <div className="hidden xl:flex items-center gap-8">
@@ -18,6 +19,9 @@ const Header = () => {
             <Button>Hire me</Button>
           </Link>
           <ModeToggle />
+        </div>
+        <div className="xl:hidden">
+          <MobileNav />
         </div>
       </div>
     </header>
