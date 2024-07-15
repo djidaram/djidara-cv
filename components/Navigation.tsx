@@ -73,7 +73,7 @@ const Navigation = () => {
         <Link
           href={link.path}
           key={`navi-${link.name}`}
-          className={`${link.path === anchor && "text-main border-b-2 border-main"} capitalize font-medium hover:text-main transition-all`}
+          className={`${link.path === anchor ? "text-main border-b-2 border-main" : "border-transparent"} capitalize font-medium border-b-2 hover:text-main transition-all`}
           scroll={link.scroll}
         >
           {link.name}
