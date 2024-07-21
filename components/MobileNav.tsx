@@ -16,7 +16,7 @@ import ModeToggle from "./ModeToggle";
 const links = [
   { name: "home", path: "#home", scroll: true },
   { name: "resume", path: "#resume", scroll: true },
-  { name: "work", path: "#work", scroll: true },
+  { name: "about", path: "#about", scroll: true },
   { name: "contact", path: "#contact", scroll: true },
 ];
 

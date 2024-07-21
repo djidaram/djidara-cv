@@ -32,11 +32,11 @@ const Navigation = () => {
         elementHeight: document.getElementById("resume")?.offsetHeight,
       },
       {
-        name: "work",
-        path: "#work",
+        name: "about",
+        path: "#about",
         scroll: true,
-        positionTop: document.getElementById("work")?.offsetTop,
-        elementHeight: document.getElementById("work")?.offsetHeight,
+        positionTop: document.getElementById("about")?.offsetTop,
+        elementHeight: document.getElementById("about")?.offsetHeight,
       },
       {
         name: "contact",
@@ -52,8 +52,8 @@ const Navigation = () => {
     links.length > 0 &&
       window.addEventListener("scroll", () => {
         for (const link of links) {
-          const positionTop = Number(link.positionTop);
-          const positionBottom = positionTop + Number(link.elementHeight);
+          const positionTop = Number(link.positionTop) - 100;
+          const positionBottom = positionTop + Number(link.elementHeight) - 100;
 
           if (
             window.scrollY >= positionTop &&
