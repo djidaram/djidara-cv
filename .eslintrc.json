@@ -6,9 +6,11 @@
     "prettier/prettier": [
       "warn",
       {
-        "endOfLine": "auto"
+        "endOfLine": "auto",
+        "trailingComma": "all"
       }
-    ]
+    ],
+    "comma-dangle": [2, "always-multiline"]
   },
   "settings": {
     "import/resolver": {
