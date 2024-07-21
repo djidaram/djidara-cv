@@ -66,6 +66,7 @@ const backgroundVariant: Variants = {
       bounce: 0.4,
       duration: 1.2,
     },
+    whiteSpace: "pre-line",
   },
 };
 
@@ -73,14 +74,17 @@ const work: ResumeContent = [
   {
     title: "Deutsche Telekom Cloud Services",
     description:
-      "This position enabled me to get in touch with many tech stacks. Ranging from Ract as frontend, Java/Python/Nestjs as backend, and Victoria Metrics and Prometheus as time series database and mysql/postgre as relational database. Also Kafka, Airflow, S3, etc., were a part of the projects. Apart from technical part, comunication with customers, was also a big part of the role, research and cataloging data from data lake, and exploring ML waters.",
+      "In this role, I worked extensively with a diverse range of advanced technologies, making substantial contributions to both technical development and project management.\n" +
+      "\nI utilized React to build sophisticated and responsive user interfaces, and employed Java, Python, and NestJS to develop high-performance backend systems. My expertise extended to managing time series databases such as VictoriaMetrics and Prometheus for handling large-scale data, as well as relational databases like MySQL and PostgreSQL to ensure efficient and scalable data solutions.\n\n" +
+      "Additionally, I engaged deeply with clients, effectively translating their needs into tailored, innovative solutions. I led critical research initiatives and played a key role in addressing complex challenges. This role allowed me to blend technical proficiency with strategic customer interaction, significantly enhancing my skills in both technology and communication while driving impactful project outcomes and fostering data-driven innovation.",
     imagePath: "/assets/resume/DTCS2.png",
     period: "2021 - Present",
   },
   {
     title: "Reversing Labs",
     description:
-      "As a member of the Threat Analyst team, I worked on monitoring and maintaining the Postgre database, developing automatizations for internal use to speed up the process of finding and mapping new cybersecurity threats, Revering and analysis of files, and Data analysis of some of the records from the RL database which consists of more than 10 billion records. Technologies and skills used: Python, Golang, RabbitMQ, Docker, MongoDB, PostgreSQL, React, and Flux. And for fun, being in mentoring/organization team for internal CTFs.",
+      "At the start of my career as a Threat Analyst, I dived into the world of monitoring and maintaining PostgreSQL databases and created automation tools to speed up the process of identifying and mapping new cybersecurity threats. \n\n" +
+      "Along the way, I picked up a range of technologies that were key in shaping my path to becoming a full-stack engineer. I worked with Python, Golang, RabbitMQ, Docker, MongoDB, and React, which gave me a solid grounding in both backend and frontend development. By the end of my time there, I had evolved into a full-stack developer, seamlessly integrating all these skills into a cohesive development approach. This role was a crucial step in my journey, setting the stage for my career in software engineering.",
     imagePath: "/assets/resume/RL3.svg",
     period: "2017 - 2021",
   },
