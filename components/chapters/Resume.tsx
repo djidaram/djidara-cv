@@ -12,6 +12,7 @@ import "../glass.css";
 // Photo by Pawel Czerwinski on Unsplash
 import DarkBackground from "@/public/assets/resume/background-dark.jpg";
 import LightBacground from "@/public/assets/resume/background-light.jpg";
+import _ from "lodash";
 
 type ResumeContent = {
   title: string;
@@ -107,6 +108,8 @@ const education: ResumeContent = [
   },
 ];
 
+const resumeContent = { work, education };
+
 const Resume = () => {
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: null,
@@ -133,11 +136,6 @@ const Resume = () => {
 
   return (
     <section id="resume" className="h-full pt-[110px]">
-      <div className="container mx-auto h-full">
-        <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
-          <h2 className="h2">Work</h2>
-        </div>
-      </div>
       <motion.div
         initial="offscreen"
         whileInView="onscreen"
@@ -165,88 +163,62 @@ const Resume = () => {
             sizes="100%"
             style={{ width: "100%", height: "auto" }}
           />
-          <div className="container mx-auto h-full">
-            {/* work section */}
-            {work.map((content, index) => (
-              <motion.div
-                key={`work - ${index}`}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{
-                  root: scrollRef,
-                  amount:
-                    windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
-                }}
-              >
-                <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-                  <div className="xl:order-1 order-2">
-                    <motion.div variants={textVariant}>
-                      {content.description}
+        </motion.div>
+        <div className="container mx-auto h-full">
+          {_.map(resumeContent, (values, title) => (
+            <div key={title}>
+              <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
+                <h2 className="h2 capitalize">{title}</h2>
+              </div>
+
+              {_.map(values, (resumeContent, index) => (
+                <motion.div
+                  key={`${title} - ${index}`}
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{
+                    root: scrollRef,
+                    amount:
+                      windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
+                  }}
+                >
+                  <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
+                    <div className="xl:order-1 order-2">
+                      <motion.div
+                        variants={textVariant}
+                        className="text-justify"
+                      >
+                        {resumeContent.description}
+                      </motion.div>
+                    </div>
+
+                    <motion.div className="xl:order-2" variants={cardVariants}>
+                      <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
+                        <CardContent>
+                          <Image
+                            src={resumeContent.imagePath}
+                            alt="dark-mode-image"
+                            width={0}
+                            height={100}
+                            sizes="100%"
+                            style={{ width: "100%", height: "150px" }}
+                          />
+                        </CardContent>
+                        <CardFooter>{resumeContent.title}</CardFooter>
+                      </Card>
                     </motion.div>
                   </div>
-
-                  <motion.div className="xl:order-2" variants={cardVariants}>
-                    <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
-                      <CardContent>
-                        <Image
-                          src={content.imagePath}
-                          alt="dark-mode-image"
-                          width={0}
-                          height={100}
-                          sizes="100%"
-                          style={{ width: "100%", height: "150px" }}
-                        />
-                      </CardContent>
-                      <CardFooter>{content.title}</CardFooter>
-                    </Card>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-
+                </motion.div>
+              ))}
+            </div>
+          ))}
+          {/* 
             <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
               <h2 className="h2">Education</h2>
-            </div>
+            </div> */}
 
-            {/* education section */}
-            {education.map((content, index) => (
-              <motion.div
-                key={index}
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{
-                  root: scrollRef,
-                  amount:
-                    windowSize.width && windowSize.width <= 640 ? 0.22 : 0.8,
-                }}
-              >
-                <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-                  <div className="xl:order-1 order-2">
-                    <motion.div variants={textVariant}>
-                      {content.description}
-                    </motion.div>
-                  </div>
-
-                  <motion.div className="xl:order-2" variants={cardVariants}>
-                    <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
-                      <CardContent>
-                        <Image
-                          src={content.imagePath}
-                          alt="dark-mode-image"
-                          width={0}
-                          height={100}
-                          sizes="100%"
-                          style={{ width: "100%", height: "150px" }}
-                        />
-                      </CardContent>
-                      <CardFooter>{content.title}</CardFooter>
-                    </Card>
-                  </motion.div>
-                </div>
-              </motion.div>
-            ))}
-          </div>
-        </motion.div>
+          {/* education section */}
+        </div>
       </motion.div>
     </section>
   );
