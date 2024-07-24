@@ -148,7 +148,7 @@ const Resume = () => {
       >
         <motion.div variants={backgroundVariant} className="overflow-x-clip">
           <Image
-            className="hidden dark:block opacity-0 lg:opacity-50 h-full w-full absolute"
+            className="hidden dark:block opacity-0 xl:opacity-50 h-full w-full absolute"
             src={DarkBackground.src}
             alt="dark-mode-image"
             width={0}
