@@ -34,6 +34,7 @@ import {
   BiLogoTailwindCss,
 } from "react-icons/bi";
 import { RiJavaLine, RiJavascriptFill, RiNextjsFill } from "react-icons/ri";
+import { SiNestjs } from "react-icons/si";
 
 interface ParallaxProps {
   children: any;
@@ -111,6 +112,7 @@ const VelocityLine = () => {
       <BiLogoTypescript className=" text-[#2f74c0]" />
       <DiHtml5 className="text-[#e43d2f]" />
       <DiNodejsSmall className="text-[#53a040]" />
+      <SiNestjs className="text-[#da214c]" />
       <DiPython />
       <RiJavaLine />
       <BiLogoGoLang className="text-[#09a9d2]" />
