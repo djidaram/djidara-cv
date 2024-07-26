@@ -71,7 +71,7 @@ const backgroundVariant: Variants = {
   },
 };
 
-const work: ResumeContent = [
+const experience: ResumeContent = [
   {
     title: "Deutsche Telekom Cloud Services",
     description:
@@ -94,21 +94,19 @@ const work: ResumeContent = [
 const education: ResumeContent = [
   {
     title: "Faculty of Electrical Engineering and Computing",
-    description:
-      "Masters of Science in Computing. It offers a robust blend of theory and practice. Core courses cover algorithms, data structures, computer architecture, operating systems, and databases. Electives include AI, machine learning, networks, cybersecurity, software engineering, HCI, and data science. Students engage in research projects, culminating in a thesis. Practical experience is emphasized through industry projects, internships, and labs. The program also develops soft skills and covers entrepreneurship, preparing students for diverse careers in academia and industry.",
+    description: "Masters of Science in Computing.",
     imagePath: "/assets/resume/FER.png",
     period: "2017 - 2019",
   },
   {
     title: "Faculty of Electrical Engineering and Computing",
-    description:
-      "Bachelor of Science in Computing. Curriculum includes programming, algorithms, data structures, computer architecture, databases, operating systems, and software engineering. Mathematics courses such as calculus, linear algebra, and discrete mathematics are also integral to the program. The program includes elective courses, allowing students to specialize in areas such as artificial intelligence, computer networks, cybersecurity, and web development.",
+    description: "Bachelor of Science in Computing.",
     imagePath: "/assets/resume/FER.png",
     period: "2013 - 2017",
   },
 ];
 
-const resumeContent = { work, education };
+const resumeContent = { experience, education };
 
 const Resume = () => {
   const [windowSize, setWindowSize] = useState<WindowSize>({
@@ -165,58 +163,92 @@ const Resume = () => {
           />
 
           <div className="container mx-auto h-full">
-            {_.map(resumeContent, (values, title) => (
-              <div key={title}>
-                <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
-                  <h2 className="h2 capitalize">{title}</h2>
-                </div>
+            <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
+              <h2 className="h2 capitalize">experience</h2>
+            </div>
 
-                {_.map(values, (resumeContent, index) => (
-                  <motion.div
-                    key={`${title} - ${index}`}
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{
-                      root: scrollRef,
-                      amount:
-                        windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
-                    }}
-                  >
-                    <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-                      <div className="xl:order-1 order-2">
-                        <motion.div
-                          variants={textVariant}
-                          className="text-justify"
-                        >
-                          <div className="flex flex-col">
-                            <h4 className="h4 pb-4">{resumeContent.period}</h4>
-                            <div>{resumeContent.description}</div>
-                          </div>
-                        </motion.div>
+            {_.map(experience, (resumeContent, index) => (
+              <motion.div
+                key={`experience - ${index}`}
+                initial="offscreen"
+                whileInView="onscreen"
+                viewport={{
+                  root: scrollRef,
+                  amount:
+                    windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
+                }}
+              >
+                <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
+                  <div className="xl:order-1 order-2">
+                    <motion.div variants={textVariant} className="text-justify">
+                      <div className="flex flex-col">
+                        <h4 className="h4 pb-4">{resumeContent.period}</h4>
+                        <div>{resumeContent.description}</div>
                       </div>
-                      <motion.div
-                        className="xl:order-2"
-                        variants={cardVariants}
-                      >
-                        <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
-                          <CardContent>
-                            <Image
-                              src={resumeContent.imagePath}
-                              alt="dark-mode-image"
-                              width={0}
-                              height={100}
-                              sizes="100%"
-                              style={{ width: "100%", height: "150px" }}
-                            />
-                          </CardContent>
-                          <CardFooter>{resumeContent.title}</CardFooter>
-                        </Card>
-                      </motion.div>
-                    </div>
+                    </motion.div>
+                  </div>
+                  <motion.div className="xl:order-2" variants={cardVariants}>
+                    <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
+                      <CardContent>
+                        <Image
+                          src={resumeContent.imagePath}
+                          alt="dark-mode-image"
+                          width={0}
+                          height={100}
+                          sizes="100%"
+                          style={{ width: "100%", height: "150px" }}
+                        />
+                      </CardContent>
+                      <CardFooter>{resumeContent.title}</CardFooter>
+                    </Card>
                   </motion.div>
-                ))}
-              </div>
+                </div>
+              </motion.div>
             ))}
+
+            <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
+              <h2 className="h2 capitalize">education</h2>
+            </div>
+
+            <motion.div
+              initial="offscreen"
+              whileInView="onscreen"
+              viewport={{
+                root: scrollRef,
+                amount: windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
+              }}
+            >
+              <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
+                <div className="xl:order-1 order-2 w-full">
+                  <motion.div variants={textVariant} className="text-justify">
+                    {_.map(education, (resumeContent, index) => (
+                      <div
+                        className="flex flex-row items-center gap-4 mb-4"
+                        key={`education - ${index}`}
+                      >
+                        <h4 className="h4">{resumeContent.period}</h4>
+                        <div>{resumeContent.description}</div>
+                      </div>
+                    ))}
+                  </motion.div>
+                </div>
+                <motion.div className="xl:order-2" variants={cardVariants}>
+                  <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
+                    <CardContent>
+                      <Image
+                        src={_.get(education, 0).imagePath}
+                        alt="dark-mode-image"
+                        width={0}
+                        height={100}
+                        sizes="100%"
+                        style={{ width: "100%", height: "150px" }}
+                      />
+                    </CardContent>
+                    <CardFooter>{_.get(education, 0).title}</CardFooter>
+                  </Card>
+                </motion.div>
+              </div>
+            </motion.div>
           </div>
         </motion.div>
       </motion.div>
