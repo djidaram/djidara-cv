@@ -35,6 +35,7 @@ const Photo = () => {
             fill
             alt=""
             className="inline w-auto m-0 h-full absolute"
+            sizes="100%"
             style={{
               maskImage:
                 "radial-gradient(circle , rgba(0, 0, 0, 1) 50%, transparent 90%)",
