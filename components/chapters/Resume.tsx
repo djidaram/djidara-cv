@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { ReactNode, useEffect, useRef, useState } from "react";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
 
@@ -16,7 +16,7 @@ import _ from "lodash";
 
 type ResumeContent = {
   title: string;
-  description: string;
+  description: ReactNode;
   imagePath: string;
   period: string;
   subtitle?: string;
@@ -74,19 +74,122 @@ const backgroundVariant: Variants = {
 const experience: ResumeContent = [
   {
     title: "Deutsche Telekom Cloud Services",
-    description:
-      "In this role, I worked extensively with a diverse range of advanced technologies, making substantial contributions to both technical development and project management.\n" +
-      "\nI utilized React to build sophisticated and responsive user interfaces, and employed Java, Python, and NestJS to develop high-performance backend systems. My expertise extended to managing time series databases such as VictoriaMetrics and Prometheus for handling large-scale data, as well as relational databases like MySQL and PostgreSQL to ensure efficient and scalable data solutions.\n\n" +
-      "Additionally, I engaged deeply with clients, effectively translating their needs into tailored, innovative solutions. I led critical research initiatives and played a key role in addressing complex challenges. This role allowed me to blend technical proficiency with strategic customer interaction, significantly enhancing my skills in both technology and communication while driving impactful project outcomes and fostering data-driven innovation.",
+    description: (
+      <>
+        <h3 className="h3 mb-2">My Role and Contributions</h3>
+        <p className="mb-2">
+          In my role, I worked extensively with a diverse range of advanced
+          technologies, making substantial contributions to both technical
+          development and project management.
+        </p>
+
+        <strong>Frontend Development:</strong>
+        <ul className="mb-2">
+          <li>
+            Utilized <strong>React</strong> to build sophisticated and
+            responsive user interfaces.
+          </li>
+        </ul>
+
+        <strong>Backend Development:</strong>
+        <ul className="mb-2">
+          <li>
+            Employed <strong>Java</strong>, <strong>Python</strong>, and{" "}
+            <strong>NestJS</strong> to develop high-performance backend systems.
+          </li>
+        </ul>
+
+        <strong>Database Management:</strong>
+        <ul>
+          <li>
+            Managed time series databases such as{" "}
+            <strong>VictoriaMetrics</strong> and <strong>Prometheus</strong> for
+            handling large-scale data.
+          </li>
+          <li>
+            Ensured efficient and scalable data solutions with relational
+            databases like <strong>MySQL</strong> and{" "}
+            <strong>PostgreSQL</strong>.
+          </li>
+        </ul>
+        <br />
+        <h3 className="h3 mb-2">Client Engagement and Solutions</h3>
+
+        <strong>Client Interaction:</strong>
+        <ul className="mb-2">
+          <li>
+            Engaged deeply with clients, effectively translating their needs
+            into tailored, innovative solutions.
+          </li>
+        </ul>
+
+        <strong>Research and Problem-Solving:</strong>
+        <ul>
+          <li>Led critical research initiatives.</li>
+          <li>Played a key role in addressing complex challenges.</li>
+        </ul>
+
+        <h4 className="h4 mt-2">Skills and Impact</h4>
+        <p>
+          This role allowed me to blend technical proficiency with strategic
+          customer interaction, significantly enhancing my skills in both
+          technology and communication while driving impactful project outcomes
+          and fostering data-driven innovation.
+        </p>
+      </>
+    ),
     imagePath: "/assets/resume/DTCS2.png",
     period: "2021 - Present",
   },
   {
     title: "Reversing Labs",
-    description:
-      "At the start of my career as a Threat Analyst intern, I dived into the world of monitoring and maintaining PostgreSQL databases and created automation tools to speed up the process of identifying and mapping new cybersecurity threats. \n\n" +
-      "Along the way, I picked up a range of technologies that were key in shaping my path to becoming a full-stack engineer. I worked with Python, Golang, RabbitMQ, Docker, MongoDB, and React, which gave me a solid grounding in both backend and frontend development.\n\n" +
-      "By the end of my time there, I had evolved into a full-stack developer, seamlessly integrating all these skills into a cohesive development approach. This role was a crucial step in my journey, setting the stage for my career in software engineering.",
+    description: (
+      <>
+        <h3 className="h3 mb-4">Career Journey</h3>
+
+        <h4 className="h4">Threat Analyst Intern</h4>
+        <p>
+          At the start of my career as a Threat Analyst intern, I dived into the
+          world of monitoring and maintaining PostgreSQL databases and created
+          automation tools to speed up the process of identifying and mapping
+          new cybersecurity threats.
+        </p>
+        <br />
+        <h4 className="h4">Technologies and Development</h4>
+        <p>
+          Along the way, I picked up a range of technologies that were key in
+          shaping my path to becoming a full-stack engineer. I worked with:
+        </p>
+        <ul>
+          <li>
+            <strong>Python</strong>
+          </li>
+          <li>
+            <strong>Golang</strong>
+          </li>
+          <li>
+            <strong>RabbitMQ</strong>
+          </li>
+          <li>
+            <strong>Docker</strong>
+          </li>
+          <li>
+            <strong>MongoDB</strong>
+          </li>
+          <li>
+            <strong>React</strong>
+          </li>
+        </ul>
+        <br />
+        <h4 className="h4">Full-Stack Developer Evolution</h4>
+        <p>
+          By the end of my time there, I had evolved into a full-stack
+          developer, seamlessly integrating all these skills into a cohesive
+          development approach. This role was a crucial step in my journey,
+          setting the stage for my career in software engineering.
+        </p>
+      </>
+    ),
     imagePath: "/assets/resume/RL3.svg",
     period: "2017 - 2021",
   },
@@ -169,7 +272,7 @@ const Resume = () => {
             </div>
 
             {_.map(experience, (resumeContent, index) => (
-              <div key={`experience - ${index}`}>
+              <div key={`experience - ${index}`} className="mt-4">
                 <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
                   <div className="xl:order-1 order-2">
                     <motion.div
