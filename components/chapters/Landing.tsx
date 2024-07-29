@@ -3,6 +3,7 @@ import { FiDownload } from "react-icons/fi";
 
 import Socials from "../Socials";
 import Photo from "../Photo";
+import Typewriter from "../Typewriter";
 
 const Landing = () => {
   return (
@@ -15,10 +16,13 @@ const Landing = () => {
               <span className="text-main">Marko Đidara</span>
             </h1>
 
-            <h3 className="text-xl">
-              And {"I'm"} a <span className="h3">Full-Stack Developer</span>
+            <h3 className="text-2xl">
+              And {"I'm"} a{" "}
+              <span className="h3 text-main flex justify-center xl:inline-block">
+                <Typewriter />
+              </span>
             </h3>
-            <p className="mb-9 max-w-[500px]">
+            <p className="mb-8 mt-2 max-w-[500px]">
               Lore ipsum Lore ipsum Lore ipsum Lore ipsum Lore ipsum Lore ipsum
               Lore ipsum Lore ipsum
             </p>
