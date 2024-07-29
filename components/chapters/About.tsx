@@ -1,8 +1,40 @@
 import Image from "next/image";
 import { Card } from "../ui/card";
 
-const aboutText =
-  "I`m a Full Stack Developer with a knack for creating efficient and user-friendly web applications. My experience covers both frontend and backend technologies, allowing me to deliver comprehensive solutions tailored to various business needs.\n\nI`m passionate about staying up-to-date with the latest tech trends and enjoy working collaboratively in team settings. Whether it's translating client visions into reality or leading project initiatives, I’m committed to delivering high-quality results.\n\nAlways ready to tackle new challenges, I look forward to contributing to innovative projects. Let`s connect and build something great together!";
+const aboutText = (
+  <>
+    <p>
+      I`m a <strong>Full Stack Developer</strong> with a knack for creating
+      efficient and user-friendly web applications. My experience covers both
+      frontend and backend technologies, allowing me to deliver comprehensive
+      solutions tailored to various business needs.
+    </p>
+    <br />
+
+    <h2>Passions and Interests</h2>
+    <ul>
+      <li>Staying up-to-date with the latest tech trends</li>
+      <li>Working collaboratively in team settings</li>
+      <li>Translating client visions into reality</li>
+      <li>Leading project initiatives</li>
+    </ul>
+    <br />
+
+    <p>
+      Whether it`s <span>translating client visions into reality</span> or{" "}
+      <span>leading project initiatives</span>, I`m committed to delivering
+      high-quality results.
+    </p>
+
+    <p>
+      Always ready to tackle new challenges, I look forward to contributing to
+      innovative projects.{" "}
+      <strong className="text-main">
+        Let`s connect and build something great together!
+      </strong>
+    </p>
+  </>
+);
 
 const About = () => {
   return (
@@ -27,7 +59,7 @@ const About = () => {
               </Card>
             </div>
             <div className="xl:w-7/12 lg:w-2/3 lg:pl-4 w-full">
-              <p className="text-justify whitespace-pre-line mt-4">
+              <p className="text-justify whitespace-pre-line mt-4 xl:mt-0">
                 {aboutText}
               </p>
             </div>
