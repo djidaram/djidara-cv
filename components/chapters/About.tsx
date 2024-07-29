@@ -9,7 +9,9 @@ const About = () => {
     <section id="about" className="h-full pt-[110px]">
       <div className="container mx-auto h-full">
         <div className="flex flex-col items-start xl:justify-start justify-center relative mt-10">
-          <h2 className="h2 capitalize mb-4">about</h2>
+          <div className="flex justify-center xl:justify-start w-full">
+            <h2 className="h2 capitalize mb-4">about</h2>
+          </div>
           <div className="flex lg:flex-row xl:flex-row flex-col items-start xl:justify-start justify-center relative mt-10">
             <div className="xl:w-5/12 lg:w-1/3 w-full">
               <Card className="flex flex-col items-center justify-center bg-white rounded-3xl xl:w-[450px] xl:h-[350px] w-full h-1/3 glass-card">
