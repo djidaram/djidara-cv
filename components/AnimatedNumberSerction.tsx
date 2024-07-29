@@ -28,7 +28,7 @@ const AnimatedNumberSection = () => {
         {_.map(numAchivment, (achivment, index) => (
           <div
             key={`num-achievment-${index}`}
-            className="flex flex-row xl:flex-col xl:justify-start items-center justify-center mx-4 my-4"
+            className="flex flex-col xl:justify-start items-center justify-center mx-4 my-4"
           >
             <h2 className="h2 flex flex-row">
               <AnimatedNumbers
