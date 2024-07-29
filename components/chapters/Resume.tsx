@@ -76,7 +76,6 @@ const experience: ResumeContent = [
     title: "Deutsche Telekom Cloud Services",
     description: (
       <>
-        <h3 className="h3 mb-2">My Role and Contributions</h3>
         <p className="mb-2">
           In my role, I worked extensively with a diverse range of advanced
           technologies, making substantial contributions to both technical
@@ -86,16 +85,18 @@ const experience: ResumeContent = [
         <strong>Frontend Development:</strong>
         <ul className="mb-2">
           <li>
-            Utilized <strong>React</strong> to build sophisticated and
-            responsive user interfaces.
+            Utilized <strong className="text-main">React</strong> to build
+            sophisticated and responsive user interfaces.
           </li>
         </ul>
 
         <strong>Backend Development:</strong>
         <ul className="mb-2">
           <li>
-            Employed <strong>Java</strong>, <strong>Python</strong>, and{" "}
-            <strong>NestJS</strong> to develop high-performance backend systems.
+            Employed <strong className="text-main">Java</strong>,{" "}
+            <strong className="text-main">Python</strong>, and{" "}
+            <strong className="text-main">NestJS</strong> to develop
+            high-performance backend systems.
           </li>
         </ul>
 
@@ -103,17 +104,17 @@ const experience: ResumeContent = [
         <ul>
           <li>
             Managed time series databases such as{" "}
-            <strong>VictoriaMetrics</strong> and <strong>Prometheus</strong> for
-            handling large-scale data.
+            <strong className="text-main">VictoriaMetrics</strong> and{" "}
+            <strong className="text-main">Prometheus</strong> for handling
+            large-scale data.
           </li>
           <li>
             Ensured efficient and scalable data solutions with relational
-            databases like <strong>MySQL</strong> and{" "}
-            <strong>PostgreSQL</strong>.
+            databases like <strong className="text-main">MySQL</strong> and{" "}
+            <strong className="text-main">PostgreSQL</strong>.
           </li>
         </ul>
         <br />
-        <h3 className="h3 mb-2">Client Engagement and Solutions</h3>
 
         <strong>Client Interaction:</strong>
         <ul className="mb-2">
@@ -129,7 +130,7 @@ const experience: ResumeContent = [
           <li>Played a key role in addressing complex challenges.</li>
         </ul>
 
-        <h4 className="h4 mt-2">Skills and Impact</h4>
+        <h4 className="h4 mt-2 mb-2">Skills and Impact</h4>
         <p>
           This role allowed me to blend technical proficiency with strategic
           customer interaction, significantly enhancing my skills in both
@@ -145,9 +146,7 @@ const experience: ResumeContent = [
     title: "Reversing Labs",
     description: (
       <>
-        <h3 className="h3 mb-4">Career Journey</h3>
-
-        <h4 className="h4">Threat Analyst Intern</h4>
+        <h4 className="h4 mb-2">Threat Analyst Intern</h4>
         <p>
           At the start of my career as a Threat Analyst intern, I dived into the
           world of monitoring and maintaining PostgreSQL databases and created
@@ -155,33 +154,33 @@ const experience: ResumeContent = [
           new cybersecurity threats.
         </p>
         <br />
-        <h4 className="h4">Technologies and Development</h4>
+        <h4 className="h4 mb-2">Technologies and Development</h4>
         <p>
           Along the way, I picked up a range of technologies that were key in
           shaping my path to becoming a full-stack engineer. I worked with:
         </p>
         <ul>
           <li>
-            <strong>Python</strong>
+            <strong className="text-main">Python</strong>
           </li>
           <li>
-            <strong>Golang</strong>
+            <strong className="text-main">Golang</strong>
           </li>
           <li>
-            <strong>RabbitMQ</strong>
+            <strong className="text-main">RabbitMQ</strong>
           </li>
           <li>
-            <strong>Docker</strong>
+            <strong className="text-main">Docker</strong>
           </li>
           <li>
-            <strong>MongoDB</strong>
+            <strong className="text-main">MongoDB</strong>
           </li>
           <li>
-            <strong>React</strong>
+            <strong className="text-main">React</strong>
           </li>
         </ul>
         <br />
-        <h4 className="h4">Full-Stack Developer Evolution</h4>
+        <h4 className="h4 mb-2">Full-Stack Developer Evolution</h4>
         <p>
           By the end of my time there, I had evolved into a full-stack
           developer, seamlessly integrating all these skills into a cohesive
