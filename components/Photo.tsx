@@ -4,27 +4,13 @@ import { motion } from "framer-motion";
 import Image from "next/image";
 
 const Photo = () => {
-  const draw = {
-    hidden: { pathLength: 0, opacity: 0 },
-    visible: (i: number) => {
-      const delay = 1 + i * 0.5;
-      return {
-        pathLength: 1,
-        opacity: 1,
-        transition: {
-          pathLength: { delay, type: "spring", duration: 1.5, bounce: 0 },
-          opacity: { delay, duration: 0.01 },
-        },
-      };
-    },
-  };
   return (
     <div className="w-full h-full relative">
       <motion.div
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 0.3, duration: 0.4, ease: "easeInOut" },
+          transition: { delay: 0.5, duration: 0.4, ease: "easeInOut" },
         }}
       >
         <div className="w-[248px] h-[248px] xl:w-[420px] xl:h-[420px] dark:mix-blend-lighten mix-blend-darken overflow-hidden relative rounded-full">

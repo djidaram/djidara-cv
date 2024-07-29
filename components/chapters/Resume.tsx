@@ -84,8 +84,9 @@ const experience: ResumeContent = [
   {
     title: "Reversing Labs",
     description:
-      "At the start of my career as a Threat Analyst, I dived into the world of monitoring and maintaining PostgreSQL databases and created automation tools to speed up the process of identifying and mapping new cybersecurity threats. \n\n" +
-      "Along the way, I picked up a range of technologies that were key in shaping my path to becoming a full-stack engineer. I worked with Python, Golang, RabbitMQ, Docker, MongoDB, and React, which gave me a solid grounding in both backend and frontend development. By the end of my time there, I had evolved into a full-stack developer, seamlessly integrating all these skills into a cohesive development approach. This role was a crucial step in my journey, setting the stage for my career in software engineering.",
+      "At the start of my career as a Threat Analyst intern, I dived into the world of monitoring and maintaining PostgreSQL databases and created automation tools to speed up the process of identifying and mapping new cybersecurity threats. \n\n" +
+      "Along the way, I picked up a range of technologies that were key in shaping my path to becoming a full-stack engineer. I worked with Python, Golang, RabbitMQ, Docker, MongoDB, and React, which gave me a solid grounding in both backend and frontend development.\n\n" +
+      "By the end of my time there, I had evolved into a full-stack developer, seamlessly integrating all these skills into a cohesive development approach. This role was a crucial step in my journey, setting the stage for my career in software engineering.",
     imagePath: "/assets/resume/RL3.svg",
     period: "2017 - 2021",
   },
@@ -133,7 +134,7 @@ const Resume = () => {
   }, []);
 
   return (
-    <section id="resume" className="h-full pt-[110px]">
+    <section id="resume" className="h-full pt-[50px]">
       <motion.div
         initial="offscreen"
         whileInView="onscreen"

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { Button } from "./ui/button";
 import Navigation from "./Navigation";
 import ModeToggle from "@/components/ModeToggle";
 import MobileNav from "./MobileNav";
