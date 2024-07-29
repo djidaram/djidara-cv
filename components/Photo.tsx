@@ -10,7 +10,7 @@ const Photo = () => {
         initial={{ opacity: 0 }}
         animate={{
           opacity: 1,
-          transition: { delay: 0.5, duration: 0.4, ease: "easeInOut" },
+          transition: { delay: 0.7, duration: 0.4, ease: "easeInOut" },
         }}
       >
         <div className="w-[248px] h-[248px] xl:w-[420px] xl:h-[420px] dark:mix-blend-lighten mix-blend-darken overflow-hidden relative rounded-full">
