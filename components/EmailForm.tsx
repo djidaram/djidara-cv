@@ -8,7 +8,6 @@ import { Button } from "@/components/ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -37,11 +36,29 @@ const EmailForm = () => {
   });
 
   const onSubmit = (data: z.infer<typeof FormSchema>) => {
-    toast({
-      title: "Your message has been sent.",
-    });
+    const sendEmail = async (endpoint: string, options: object) => {
+      const response: Response = await fetch(endpoint, options);
 
-    // handle data and send mail
+      response.status === 200
+        ? toast({
+            title: "Your message has been sent.",
+          })
+        : toast({
+            title:
+              "Email not sent! There was an issue with email API provider.",
+            variant: "destructive",
+          });
+    };
+    const JSONdata = JSON.stringify(data);
+    const endpoint = "/api/send";
+
+    const options = {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSONdata,
+    };
+
+    sendEmail(endpoint, options);
   };
 
   return (
