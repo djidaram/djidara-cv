@@ -1,8 +1,12 @@
 "use client";
 
+import React from "react";
 import _ from "lodash";
-import { useState } from "react";
-import AnimatedNumbers from "react-animated-numbers";
+
+import dynamic from "next/dynamic";
+const AnimatedNumbers = dynamic(() => import("react-animated-numbers"), {
+  ssr: false,
+});
 
 const numAchivment = [
   {
