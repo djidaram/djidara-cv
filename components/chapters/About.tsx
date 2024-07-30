@@ -59,9 +59,9 @@ const About = () => {
               </Card>
             </div>
             <div className="xl:w-7/12 lg:w-2/3 lg:pl-4 w-full">
-              <p className="text-justify whitespace-pre-line mt-4 xl:mt-0">
+              <div className="text-justify whitespace-pre-line mt-4 xl:mt-0">
                 {aboutText}
-              </p>
+              </div>
             </div>
           </div>
         </div>

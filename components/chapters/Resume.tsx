@@ -75,7 +75,7 @@ const experience: ResumeContent = [
   {
     title: "Deutsche Telekom Cloud Services",
     description: (
-      <>
+      <div>
         <p className="mb-2">
           In my role, I worked extensively with a diverse range of advanced
           technologies, making substantial contributions to both technical
@@ -137,7 +137,7 @@ const experience: ResumeContent = [
           technology and communication while driving impactful project outcomes
           and fostering data-driven innovation.
         </p>
-      </>
+      </div>
     ),
     imagePath: "/assets/resume/DTCS2.png",
     period: "2021 - Present",
@@ -145,7 +145,7 @@ const experience: ResumeContent = [
   {
     title: "Reversing Labs",
     description: (
-      <>
+      <div>
         <h4 className="h4 mb-2">Threat Analyst Intern</h4>
         <p>
           At the start of my career as a Threat Analyst intern, I dived into the
@@ -187,7 +187,7 @@ const experience: ResumeContent = [
           development approach. This role was a crucial step in my journey,
           setting the stage for my career in software engineering.
         </p>
-      </>
+      </div>
     ),
     imagePath: "/assets/resume/RL3.svg",
     period: "2017 - 2021",
@@ -291,7 +291,7 @@ const Resume = () => {
                       >
                         <div className="flex flex-col">
                           <h4 className="h4 pb-4">{resumeContent.period}</h4>
-                          <div>{resumeContent.description}</div>
+                          {resumeContent.description}
                         </div>
                       </motion.div>
                     </motion.div>
@@ -349,7 +349,7 @@ const Resume = () => {
                         key={`education - ${index}`}
                       >
                         <h4 className="h4">{resumeContent.period}</h4>
-                        <div>{resumeContent.description}</div>
+                        {resumeContent.description}
                       </div>
                     ))}
                   </motion.div>

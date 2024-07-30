@@ -1,7 +1,6 @@
 import EmailForm from "../EmailForm";
 import Socials from "../Socials";
 import { Card } from "../ui/card";
-import { Textarea } from "../ui/textarea";
 
 const Contact = () => {
   return (
