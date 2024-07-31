@@ -4,6 +4,7 @@ import { FiDownload } from "react-icons/fi";
 import Socials from "../Socials";
 import Photo from "../Photo";
 import Typewriter from "../Typewriter";
+import Link from "next/link";
 
 const Landing = () => {
   return (
@@ -27,14 +28,16 @@ const Landing = () => {
               Lore ipsum Lore ipsum
             </p>
             <div className="flex flex-col items-center gap-8 xl:flex-row">
-              <Button
-                variant="outline"
-                size="lg"
-                className="flex items-center justify-center gap-4 uppercase"
-              >
-                <span>Download CV</span>
-                <FiDownload className="text-xl" />
-              </Button>
+              <a href="/assets/resume/Marko-Djidara-CV.pdf" download>
+                <Button
+                  variant="outline"
+                  size="lg"
+                  className="flex items-center justify-center gap-4 uppercase"
+                >
+                  <span>Download CV</span>
+                  <FiDownload className="text-xl" />
+                </Button>
+              </a>
               <div className="mb-8 xl:mb-0">
                 <Socials
                   containerStyles="flex gap-6"
