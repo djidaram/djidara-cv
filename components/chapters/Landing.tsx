@@ -24,8 +24,9 @@ const Landing = () => {
               </span>
             </h3>
             <p className="mb-8 mt-2 max-w-[500px]">
-              Lore ipsum Lore ipsum Lore ipsum Lore ipsum Lore ipsum Lore ipsum
-              Lore ipsum Lore ipsum
+              Welcome to the Djidara resume. This page showcases my professional
+              background, skills, and projects. My GitHub page contains the code
+              for this website.
             </p>
             <div className="flex flex-col items-center gap-8 xl:flex-row">
               <a href="/assets/resume/Marko-Djidara-CV.pdf" download>
