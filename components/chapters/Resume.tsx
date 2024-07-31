@@ -1,18 +1,20 @@
 "use client";
 
 import { ReactNode, useEffect, useRef, useState } from "react";
+import Image from "next/image";
+
+import _ from "lodash";
 
 import { Card, CardContent, CardFooter } from "@/components/ui/card";
+import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 
 import { motion, Variants } from "framer-motion";
-import Image from "next/image";
 
 import "../glass.css";
 
 // Photo by Pawel Czerwinski on Unsplash
 import DarkBackground from "@/public/assets/resume/background-dark.jpg";
 import LightBacground from "@/public/assets/resume/background-light.jpg";
-import _ from "lodash";
 
 type ResumeContent = {
   title: string;
@@ -82,53 +84,77 @@ const experience: ResumeContent = [
           development and project management.
         </p>
 
-        <strong>Frontend Development:</strong>
-        <ul className="mb-2">
-          <li>
-            Utilized <strong className="text-main">React</strong> to build
-            sophisticated and responsive user interfaces.
-          </li>
-        </ul>
-
-        <strong>Backend Development:</strong>
-        <ul className="mb-2">
-          <li>
-            Employed <strong className="text-main">Java</strong>,{" "}
-            <strong className="text-main">Python</strong>, and{" "}
-            <strong className="text-main">NestJS</strong> to develop
-            high-performance backend systems.
-          </li>
-        </ul>
-
-        <strong>Database Management:</strong>
-        <ul>
-          <li>
-            Managed time series databases such as{" "}
-            <strong className="text-main">VictoriaMetrics</strong> and{" "}
-            <strong className="text-main">Prometheus</strong> for handling
-            large-scale data.
-          </li>
-          <li>
-            Ensured efficient and scalable data solutions with relational
-            databases like <strong className="text-main">MySQL</strong> and{" "}
-            <strong className="text-main">PostgreSQL</strong>.
-          </li>
-        </ul>
         <br />
 
-        <strong>Client Interaction:</strong>
-        <ul className="mb-2">
-          <li>
-            Engaged deeply with clients, effectively translating their needs
-            into tailored, innovative solutions.
-          </li>
-        </ul>
+        <Tabs defaultValue="development">
+          <TabsList>
+            <TabsTrigger value="development">
+              Technologies & Development
+            </TabsTrigger>
+            <TabsTrigger value="client">
+              Client Engagement & Solutions
+            </TabsTrigger>
+          </TabsList>
+          <Card className="glass-card mt-2">
+            <div className="p-6">
+              <TabsContent value="development">
+                <>
+                  <strong>Frontend Development:</strong>
+                  <ul className="mb-2">
+                    <li>
+                      Utilized <strong className="text-main">React</strong> to
+                      build sophisticated and responsive user interfaces.
+                    </li>
+                  </ul>
 
-        <strong>Research and Problem-Solving:</strong>
-        <ul>
-          <li>Led critical research initiatives.</li>
-          <li>Played a key role in addressing complex challenges.</li>
-        </ul>
+                  <strong>Backend Development:</strong>
+                  <ul className="mb-2">
+                    <li>
+                      Employed <strong className="text-main">Java</strong>,{" "}
+                      <strong className="text-main">Python</strong>, and{" "}
+                      <strong className="text-main">NestJS</strong> to develop
+                      high-performance backend systems.
+                    </li>
+                  </ul>
+
+                  <strong>Database Management:</strong>
+                  <ul>
+                    <li>
+                      Managed time series databases such as{" "}
+                      <strong className="text-main">VictoriaMetrics</strong> and{" "}
+                      <strong className="text-main">Prometheus</strong> for
+                      handling large-scale data.
+                    </li>
+                    <li>
+                      Ensured efficient and scalable data solutions with
+                      relational databases like{" "}
+                      <strong className="text-main">MySQL</strong> and{" "}
+                      <strong className="text-main">PostgreSQL</strong>.
+                    </li>
+                  </ul>
+                </>
+              </TabsContent>
+              <TabsContent value="client">
+                <>
+                  <strong>Client Interaction:</strong>
+                  <ul className="mb-2">
+                    <li>
+                      Engaged deeply with clients, effectively translating their
+                      needs into tailored, innovative solutions.
+                    </li>
+                  </ul>
+
+                  <strong>Research and Problem-Solving:</strong>
+                  <ul>
+                    <li>Led critical research initiatives.</li>
+                    <li>Played a key role in addressing complex challenges.</li>
+                  </ul>
+                </>
+              </TabsContent>
+            </div>
+          </Card>
+        </Tabs>
+        <br />
 
         <h4 className="h4 mt-2 mb-2">Skills and Impact</h4>
         <p>
@@ -146,13 +172,34 @@ const experience: ResumeContent = [
     title: "Reversing Labs",
     description: (
       <div>
-        <h4 className="h4 mb-2">Threat Analyst Intern</h4>
-        <p>
-          At the start of my career as a Threat Analyst intern, I dived into the
-          world of monitoring and maintaining PostgreSQL databases and created
-          automation tools to speed up the process of identifying and mapping
-          new cybersecurity threats.
-        </p>
+        <Tabs defaultValue="intern">
+          <TabsList>
+            <TabsTrigger value="intern">Threat Analyst Intern</TabsTrigger>
+            <TabsTrigger value="full-stack">Full-Stack Developer</TabsTrigger>
+          </TabsList>
+          <Card className="glass-card mt-2">
+            <div className="p-4">
+              <TabsContent value="intern">
+                <p>
+                  At the start of my career as a Threat Analyst intern, I dived
+                  into the world of monitoring and maintaining PostgreSQL
+                  databases and created automation tools to speed up the process
+                  of identifying and mapping new cybersecurity threats.
+                </p>
+              </TabsContent>
+              <TabsContent value="full-stack">
+                <p>
+                  By the end of my time there, I had evolved into a full-stack
+                  developer, seamlessly integrating all these skills into a
+                  cohesive development approach. This role was a crucial step in
+                  my journey, setting the stage for my career in software
+                  engineering.
+                </p>
+              </TabsContent>
+            </div>
+          </Card>
+        </Tabs>
+
         <br />
         <h4 className="h4 mb-2">Technologies and Development</h4>
         <p>
@@ -179,14 +226,6 @@ const experience: ResumeContent = [
             <strong className="text-main">React</strong>
           </li>
         </ul>
-        <br />
-        <h4 className="h4 mb-2">Full-Stack Developer Evolution</h4>
-        <p>
-          By the end of my time there, I had evolved into a full-stack
-          developer, seamlessly integrating all these skills into a cohesive
-          development approach. This role was a crucial step in my journey,
-          setting the stage for my career in software engineering.
-        </p>
       </div>
     ),
     imagePath: "/assets/resume/RL3.svg",
