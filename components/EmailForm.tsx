@@ -59,6 +59,8 @@ const EmailForm = () => {
     };
 
     sendEmail(endpoint, options);
+
+    setTimeout(() => form.reset(), 1500);
   };
 
   return (
@@ -100,7 +102,7 @@ const EmailForm = () => {
             <FormItem>
               <FormLabel>Message</FormLabel>
               <FormControl>
-                <Textarea {...field} />
+                <Textarea {...field} rows={6} />
               </FormControl>
               <FormMessage />
             </FormItem>

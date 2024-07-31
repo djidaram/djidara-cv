@@ -11,7 +11,7 @@ const Contact = () => {
       <div className="bg-main/30 w-full rounded-t-xl pb-5">
         <div className="container mx-auto h-full">
           <div className="flex flex-col items-start xl:justify-center xl:flex-row justify-start relative pt-8 gap-8">
-            <div className="w-full xl:w-1/2 order-2 xl:order-1">
+            <div className="w-full xl:mb-4 xl:w-1/2 order-2 xl:order-1">
               <Card className="flex flex-col items-center bg-white rounded-3xl glass-card">
                 <EmailForm />
               </Card>
