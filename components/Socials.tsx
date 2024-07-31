@@ -9,8 +9,11 @@ type SocialsProps = {
 };
 
 const socials = [
-  { icon: <FaGithub />, path: "" },
-  { icon: <FaLinkedin />, path: "" },
+  { icon: <FaGithub />, path: "https://github.com/djidaram" },
+  {
+    icon: <FaLinkedin />,
+    path: "https://www.linkedin.com/in/marko-djidara-846010150/",
+  },
 ];
 
 const Socials: NextPage<SocialsProps> = ({ containerStyles, iconStyles }) => {
@@ -21,6 +24,7 @@ const Socials: NextPage<SocialsProps> = ({ containerStyles, iconStyles }) => {
           key={`social-${index}`}
           href={social?.path}
           className={iconStyles}
+          target="_blank"
         >
           {social.icon}
         </Link>
