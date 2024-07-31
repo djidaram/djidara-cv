@@ -6,6 +6,7 @@ const Typewriter = () => {
   return (
     <TypeAnimation
       preRenderFirstString={true}
+      className="text-2xl sm:text-3xl"
       sequence={[
         500,
         "Full-Stack Developer", // initially rendered starting point
@@ -17,7 +18,7 @@ const Typewriter = () => {
       ]}
       wrapper="span"
       speed={50}
-      style={{ fontSize: "2em", display: "inline-block" }}
+      style={{ display: "inline-block" }}
       repeat={Infinity}
     />
   );
