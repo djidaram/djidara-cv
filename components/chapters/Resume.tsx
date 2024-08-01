@@ -309,7 +309,17 @@ const Resume = () => {
               <div key={`experience - ${index}`} className="mt-4 xl:mt-8">
                 <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
                   <div className="xl:order-1 order-2 mt-10 xl:mt-0">
-                    <motion.div variants={textVariant} className="text-justify">
+                    <motion.div
+                      variants={textVariant}
+                      className="text-justify"
+                      initial="offscreen"
+                      whileInView="onscreen"
+                      viewport={{
+                        root: scrollRef,
+                        amount:
+                          windowSize.width && windowSize.width <= 640 ? 0 : 0.7,
+                      }}
+                    >
                       <div className="flex flex-col xl:items-start items-center">
                         <h4 className="h4 pb-4">{resumeContent.period}</h4>
                         {resumeContent.description}
@@ -323,7 +333,7 @@ const Resume = () => {
                     viewport={{
                       root: scrollRef,
                       amount:
-                        windowSize.width && windowSize.width <= 640 ? 0.1 : 0.6,
+                        windowSize.width && windowSize.width <= 640 ? 0.1 : 0.4,
                     }}
                   >
                     <motion.div variants={cardVariants}>
@@ -376,7 +386,7 @@ const Resume = () => {
                 viewport={{
                   root: scrollRef,
                   amount:
-                    windowSize.width && windowSize.width <= 640 ? 0.1 : 0.6,
+                    windowSize.width && windowSize.width <= 640 ? 0.1 : 0.4,
                 }}
               >
                 <motion.div variants={cardVariants}>
