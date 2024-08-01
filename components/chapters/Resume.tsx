@@ -210,7 +210,7 @@ const Resume = () => {
       rotate: -10,
     },
     onscreen: {
-      x: 110,
+      x: 80,
       y: -20,
       rotate: -10,
       transition: {
@@ -223,7 +223,7 @@ const Resume = () => {
 
   const textVariant: Variants = {
     offscreen: {
-      opacity: windowSize.width && windowSize.width <= 640 ? 1 : 0,
+      opacity: windowSize.width && windowSize.width <= 420 ? 1 : 0,
     },
     onscreen: {
       opacity: 1,
@@ -237,7 +237,7 @@ const Resume = () => {
 
   const backgroundVariant: Variants = {
     offscreen: {
-      opacity: 0,
+      opacity: windowSize.width && windowSize.width <= 420 ? 1 : 0,
     },
     onscreen: {
       opacity: 1,
