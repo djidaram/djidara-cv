@@ -26,53 +26,6 @@ type ResumeContent = {
 
 type WindowSize = { height: number | null; width: number | null };
 
-const cardVariants: Variants = {
-  offscreen: {
-    x: 700,
-    y: -20,
-    rotate: -10,
-  },
-  onscreen: {
-    x: 100,
-    y: -20,
-    rotate: -10,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1.2,
-    },
-  },
-};
-
-const textVariant: Variants = {
-  offscreen: {
-    opacity: 0,
-  },
-  onscreen: {
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1.2,
-    },
-  },
-};
-
-const backgroundVariant: Variants = {
-  offscreen: {
-    opacity: 0,
-  },
-  onscreen: {
-    opacity: 1,
-    transition: {
-      type: "spring",
-      bounce: 0.4,
-      duration: 1.2,
-    },
-    whiteSpace: "pre-line",
-  },
-};
-
 const experience: ResumeContent = [
   {
     title: "Deutsche Telekom Cloud Services",
@@ -88,17 +41,13 @@ const experience: ResumeContent = [
 
         <Tabs defaultValue="development">
           <TabsList>
-            <TabsTrigger value="development">
-              Technologies & Development
-            </TabsTrigger>
-            <TabsTrigger value="client">
-              Client Engagement & Solutions
-            </TabsTrigger>
+            <TabsTrigger value="development">Development</TabsTrigger>
+            <TabsTrigger value="client">Client Engagement</TabsTrigger>
           </TabsList>
           <Card className="glass-card mt-2">
-            <div className="p-6">
+            <div className="p-4">
               <TabsContent value="development">
-                <>
+                <div>
                   <strong>Frontend Development:</strong>
                   <ul className="mb-2">
                     <li>
@@ -132,7 +81,7 @@ const experience: ResumeContent = [
                       <strong className="text-main">PostgreSQL</strong>.
                     </li>
                   </ul>
-                </>
+                </div>
               </TabsContent>
               <TabsContent value="client">
                 <>
@@ -248,13 +197,58 @@ const education: ResumeContent = [
   },
 ];
 
-const resumeContent = { experience, education };
-
 const Resume = () => {
   const [windowSize, setWindowSize] = useState<WindowSize>({
     width: null,
     height: null,
   });
+
+  const cardVariants: Variants = {
+    offscreen: {
+      x: 700,
+      y: -20,
+      rotate: -10,
+    },
+    onscreen: {
+      x: 110,
+      y: -20,
+      rotate: -10,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 1.2,
+      },
+    },
+  };
+
+  const textVariant: Variants = {
+    offscreen: {
+      opacity: windowSize.width && windowSize.width <= 640 ? 1 : 0,
+    },
+    onscreen: {
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 1.2,
+      },
+    },
+  };
+
+  const backgroundVariant: Variants = {
+    offscreen: {
+      opacity: 0,
+    },
+    onscreen: {
+      opacity: 1,
+      transition: {
+        type: "spring",
+        bounce: 0.4,
+        duration: 1.2,
+      },
+      whiteSpace: "pre-line",
+    },
+  };
 
   const scrollRef = useRef(null);
 
@@ -284,6 +278,7 @@ const Resume = () => {
           amount: windowSize.width && windowSize.width <= 640 ? 0 : 0.2,
         }}
       >
+        {/* Background Imgage */}
         <motion.div variants={backgroundVariant} className="overflow-x-clip">
           <Image
             className="hidden dark:block opacity-0 xl:opacity-50 h-full w-full absolute"
@@ -309,30 +304,16 @@ const Resume = () => {
               <h2 className="h2 capitalize">experience</h2>
             </div>
 
+            {/* experience section text */}
             {_.map(experience, (resumeContent, index) => (
-              <div key={`experience - ${index}`} className="mt-4">
+              <div key={`experience - ${index}`} className="mt-4 xl:mt-8">
                 <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-                  <div className="xl:order-1 order-2">
-                    <motion.div
-                      initial="offscreen"
-                      whileInView="onscreen"
-                      viewport={{
-                        root: scrollRef,
-                        amount:
-                          windowSize.width && windowSize.width <= 640
-                            ? 0.2
-                            : 0.8,
-                      }}
-                    >
-                      <motion.div
-                        variants={textVariant}
-                        className="text-justify"
-                      >
-                        <div className="flex flex-col">
-                          <h4 className="h4 pb-4">{resumeContent.period}</h4>
-                          {resumeContent.description}
-                        </div>
-                      </motion.div>
+                  <div className="xl:order-1 order-2 mt-10 xl:mt-0">
+                    <motion.div variants={textVariant} className="text-justify">
+                      <div className="flex flex-col xl:items-start items-center">
+                        <h4 className="h4 pb-4">{resumeContent.period}</h4>
+                        {resumeContent.description}
+                      </div>
                     </motion.div>
                   </div>
                   <motion.div
@@ -342,7 +323,7 @@ const Resume = () => {
                     viewport={{
                       root: scrollRef,
                       amount:
-                        windowSize.width && windowSize.width <= 640 ? 0.2 : 0.8,
+                        windowSize.width && windowSize.width <= 640 ? 0.1 : 0.6,
                     }}
                   >
                     <motion.div variants={cardVariants}>
@@ -370,30 +351,24 @@ const Resume = () => {
               <h2 className="h2 capitalize">education</h2>
             </div>
 
+            {/* This section Is for education text */}
             <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
               <div className="xl:order-1 order-2 w-full">
-                <motion.div
-                  initial="offscreen"
-                  whileInView="onscreen"
-                  viewport={{
-                    root: scrollRef,
-                    amount:
-                      windowSize.width && windowSize.width <= 640 ? 0.1 : 0.8,
-                  }}
-                >
-                  <motion.div variants={textVariant} className="text-justify">
-                    {_.map(education, (resumeContent, index) => (
-                      <div
-                        className="flex flex-row items-center gap-4 mb-4"
-                        key={`education - ${index}`}
-                      >
-                        <h4 className="h4">{resumeContent.period}</h4>
-                        {resumeContent.description}
-                      </div>
-                    ))}
-                  </motion.div>
+                <motion.div variants={textVariant} className="text-justify">
+                  {_.map(education, (resumeContent, index) => (
+                    <div
+                      className="flex flex-row items-center gap-4 mb-4"
+                      key={`education - ${index}`}
+                    >
+                      <h4 className="h4">{resumeContent.period}</h4>
+                      {resumeContent.description}
+                    </div>
+                  ))}
                 </motion.div>
               </div>
+
+              {/* This section Is for education Card */}
+
               <motion.div
                 className="xl:order-2"
                 initial="offscreen"
@@ -401,7 +376,7 @@ const Resume = () => {
                 viewport={{
                   root: scrollRef,
                   amount:
-                    windowSize.width && windowSize.width <= 640 ? 0.3 : 0.8,
+                    windowSize.width && windowSize.width <= 640 ? 0.1 : 0.6,
                 }}
               >
                 <motion.div variants={cardVariants}>
