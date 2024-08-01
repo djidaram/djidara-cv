@@ -271,7 +271,9 @@ const Resume = () => {
   return (
     <section id="resume" className="h-full pt-[50px]">
       <motion.div
-        initial="offscreen"
+        initial={
+          windowSize.width && windowSize.width <= 420 ? "onscreen" : "offscreen"
+        }
         whileInView="onscreen"
         viewport={{
           root: scrollRef,
