@@ -317,7 +317,7 @@ const Resume = () => {
                       viewport={{
                         root: scrollRef,
                         amount:
-                          windowSize.width && windowSize.width <= 640 ? 0 : 0.7,
+                          windowSize.width && windowSize.width <= 640 ? 0 : 0.4,
                       }}
                     >
                       <div className="flex flex-col xl:items-start items-center">
