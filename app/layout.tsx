@@ -2,6 +2,8 @@ import type { Metadata } from "next";
 import { Poppins } from "next/font/google";
 import "./globals.css";
 import { ThemeProvider } from "@/components/theme-provider";
+import { SpeedInsights } from "@vercel/speed-insights/next";
+
 import Header from "@/components/Header";
 
 const poppins = Poppins({
@@ -32,6 +34,7 @@ export default function RootLayout({
           <Header />
           {children}
         </ThemeProvider>
+        <SpeedInsights />
       </body>
     </html>
   );
