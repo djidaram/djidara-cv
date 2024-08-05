@@ -202,6 +202,7 @@ const Resume = () => {
     width: null,
     height: null,
   });
+  const [initialMotion, setInitialMotion] = useState<string | null>(null);
 
   const cardVariants: Variants = {
     offscreen: {
@@ -268,149 +269,160 @@ const Resume = () => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  useEffect(() => {
+    windowSize.width &&
+      setInitialMotion(
+        windowSize.width && windowSize.width > 640 ? "offscreen" : "onscreen",
+      );
+  }, [windowSize]);
+
   return (
     <section id="resume" className="h-full pt-[50px]">
-      <motion.div
-        initial={
-          windowSize.width && windowSize.width <= 420 ? "onscreen" : "offscreen"
-        }
-        whileInView="onscreen"
-        viewport={{
-          root: scrollRef,
-          amount: windowSize.width && windowSize.width <= 640 ? 0 : 0.2,
-        }}
-      >
-        {/* Background Imgage */}
-        <motion.div variants={backgroundVariant} className="overflow-x-clip">
-          <Image
-            className="hidden dark:block opacity-0 xl:opacity-50 h-full w-full absolute"
-            src={DarkBackground.src}
-            alt="dark-mode-image"
-            width={0}
-            height={100}
-            sizes="100%"
-            style={{ width: "100%", height: "auto" }}
-          />
-          <Image
-            className="mb-4 block dark:hidden opacity-0 xl:opacity-50 h-full w-full absolute"
-            src={LightBacground.src}
-            alt="light-mode-image"
-            width={0}
-            height={100}
-            sizes="100%"
-            style={{ width: "100%", height: "auto" }}
-          />
+      {initialMotion && (
+        <motion.div
+          initial={initialMotion}
+          whileInView="onscreen"
+          viewport={{
+            root: scrollRef,
+            amount: windowSize.width && windowSize.width <= 640 ? 0 : 0.2,
+          }}
+        >
+          {/* Background Imgage */}
+          <motion.div variants={backgroundVariant} className="overflow-x-clip">
+            <Image
+              className="hidden dark:block opacity-0 xl:opacity-50 h-full w-full absolute"
+              src={DarkBackground.src}
+              alt="dark-mode-image"
+              width={0}
+              height={100}
+              sizes="100%"
+              style={{ width: "100%", height: "auto" }}
+            />
+            <Image
+              className="mb-4 block dark:hidden opacity-0 xl:opacity-50 h-full w-full absolute"
+              src={LightBacground.src}
+              alt="light-mode-image"
+              width={0}
+              height={100}
+              sizes="100%"
+              style={{ width: "100%", height: "auto" }}
+            />
 
-          <div className="container mx-auto h-full">
-            <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
-              <h2 className="h2 capitalize">experience</h2>
-            </div>
+            <div className="container mx-auto h-full">
+              <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
+                <h2 className="h2 capitalize">experience</h2>
+              </div>
 
-            {/* experience section text */}
-            {_.map(experience, (resumeContent, index) => (
-              <div key={`experience - ${index}`} className="mt-4 xl:mt-8">
-                <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-                  <div className="xl:order-1 order-2 mt-10 xl:mt-0">
+              {/* experience section text */}
+              {_.map(experience, (resumeContent, index) => (
+                <div key={`experience - ${index}`} className="mt-4 xl:mt-8">
+                  <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
+                    <div className="xl:order-1 order-2 mt-10 xl:mt-0">
+                      <motion.div
+                        variants={textVariant}
+                        className="text-justify"
+                        initial="offscreen"
+                        whileInView="onscreen"
+                        viewport={{
+                          root: scrollRef,
+                          amount:
+                            windowSize.width && windowSize.width <= 640
+                              ? 0
+                              : 0.4,
+                        }}
+                      >
+                        <div className="flex flex-col xl:items-start items-center">
+                          <h4 className="h4 pb-4">{resumeContent.period}</h4>
+                          {resumeContent.description}
+                        </div>
+                      </motion.div>
+                    </div>
                     <motion.div
-                      variants={textVariant}
-                      className="text-justify"
+                      className="xl:order-2"
                       initial="offscreen"
                       whileInView="onscreen"
                       viewport={{
                         root: scrollRef,
                         amount:
-                          windowSize.width && windowSize.width <= 640 ? 0 : 0.4,
+                          windowSize.width && windowSize.width <= 640
+                            ? 0.1
+                            : 0.4,
                       }}
                     >
-                      <div className="flex flex-col xl:items-start items-center">
-                        <h4 className="h4 pb-4">{resumeContent.period}</h4>
-                        {resumeContent.description}
-                      </div>
+                      <motion.div variants={cardVariants}>
+                        <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
+                          <CardContent>
+                            <Image
+                              src={resumeContent.imagePath}
+                              alt="dark-mode-image"
+                              width={0}
+                              height={100}
+                              sizes="100%"
+                              style={{ width: "100%", height: "150px" }}
+                            />
+                          </CardContent>
+                          <CardFooter>{resumeContent.title}</CardFooter>
+                        </Card>
+                      </motion.div>
                     </motion.div>
                   </div>
-                  <motion.div
-                    className="xl:order-2"
-                    initial="offscreen"
-                    whileInView="onscreen"
-                    viewport={{
-                      root: scrollRef,
-                      amount:
-                        windowSize.width && windowSize.width <= 640 ? 0.1 : 0.4,
-                    }}
-                  >
-                    <motion.div variants={cardVariants}>
-                      <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
-                        <CardContent>
-                          <Image
-                            src={resumeContent.imagePath}
-                            alt="dark-mode-image"
-                            width={0}
-                            height={100}
-                            sizes="100%"
-                            style={{ width: "100%", height: "150px" }}
-                          />
-                        </CardContent>
-                        <CardFooter>{resumeContent.title}</CardFooter>
-                      </Card>
-                    </motion.div>
+                  {/* </motion.div> */}
+                </div>
+              ))}
+
+              <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
+                <h2 className="h2 capitalize">education</h2>
+              </div>
+
+              {/* This section Is for education text */}
+              <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
+                <div className="xl:order-1 order-2 w-full">
+                  <motion.div variants={textVariant} className="text-justify">
+                    {_.map(education, (resumeContent, index) => (
+                      <div
+                        className="flex flex-row items-center gap-4 mb-4"
+                        key={`education - ${index}`}
+                      >
+                        <h4 className="h4">{resumeContent.period}</h4>
+                        {resumeContent.description}
+                      </div>
+                    ))}
                   </motion.div>
                 </div>
-                {/* </motion.div> */}
-              </div>
-            ))}
 
-            <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative mt-10">
-              <h2 className="h2 capitalize">education</h2>
-            </div>
+                {/* This section Is for education Card */}
 
-            {/* This section Is for education text */}
-            <div className="flex xl:flex-row flex-col items-center xl:justify-start justify-center relative">
-              <div className="xl:order-1 order-2 w-full">
-                <motion.div variants={textVariant} className="text-justify">
-                  {_.map(education, (resumeContent, index) => (
-                    <div
-                      className="flex flex-row items-center gap-4 mb-4"
-                      key={`education - ${index}`}
-                    >
-                      <h4 className="h4">{resumeContent.period}</h4>
-                      {resumeContent.description}
-                    </div>
-                  ))}
+                <motion.div
+                  className="xl:order-2"
+                  initial="offscreen"
+                  whileInView="onscreen"
+                  viewport={{
+                    root: scrollRef,
+                    amount:
+                      windowSize.width && windowSize.width <= 640 ? 0.1 : 0.4,
+                  }}
+                >
+                  <motion.div variants={cardVariants}>
+                    <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
+                      <CardContent>
+                        <Image
+                          src={_.get(education, 0).imagePath}
+                          alt="dark-mode-image"
+                          width={0}
+                          height={100}
+                          sizes="100%"
+                          style={{ width: "100%", height: "150px" }}
+                        />
+                      </CardContent>
+                      <CardFooter>{_.get(education, 0).title}</CardFooter>
+                    </Card>
+                  </motion.div>
                 </motion.div>
               </div>
-
-              {/* This section Is for education Card */}
-
-              <motion.div
-                className="xl:order-2"
-                initial="offscreen"
-                whileInView="onscreen"
-                viewport={{
-                  root: scrollRef,
-                  amount:
-                    windowSize.width && windowSize.width <= 640 ? 0.1 : 0.4,
-                }}
-              >
-                <motion.div variants={cardVariants}>
-                  <Card className="flex flex-col items-center justify-center bg-white rounded-3xl w-[300px] h-[430px] glass-card text-center">
-                    <CardContent>
-                      <Image
-                        src={_.get(education, 0).imagePath}
-                        alt="dark-mode-image"
-                        width={0}
-                        height={100}
-                        sizes="100%"
-                        style={{ width: "100%", height: "150px" }}
-                      />
-                    </CardContent>
-                    <CardFooter>{_.get(education, 0).title}</CardFooter>
-                  </Card>
-                </motion.div>
-              </motion.div>
             </div>
-          </div>
+          </motion.div>
         </motion.div>
-      </motion.div>
+      )}
     </section>
   );
 };
