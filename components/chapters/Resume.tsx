@@ -163,9 +163,6 @@ const experience: ResumeContent = [
             <strong className="text-main">Golang</strong>
           </li>
           <li>
-            <strong className="text-main">RabbitMQ</strong>
-          </li>
-          <li>
             <strong className="text-main">Docker</strong>
           </li>
           <li>
