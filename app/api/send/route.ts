@@ -9,7 +9,7 @@ export const POST = async (req: Request) => {
 
   try {
     const { data, error } = await resend.emails.send({
-      from: "djidara-cv <resend@djidara.me>",
+      from: "djidara-cv <onboarding@resend.dev>",
       to: [toEmail],
       subject: subject,
       react: EmailTemplate({ email, message }),
